@@ -116,7 +116,7 @@ public class DinnerPlates {
             nodes[firstIndex] = node;
         } else {
             // 追加一个节点
-            node.appendNode(val, node);
+            node.appendNode(val);
         }
 
         // 如果当前节点的所在的节点总和已经超过容量，把当前index剔除出去
@@ -189,8 +189,8 @@ public class DinnerPlates {
          * 追加节点
          * @return
          */
-        public void appendNode(int val, TreeNode prev) {
-            new TreeNode( val, prev );
+        public void appendNode(int val) {
+            new TreeNode( val, this );
         }
 
         /**
