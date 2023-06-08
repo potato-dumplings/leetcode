@@ -1,7 +1,6 @@
 package may;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.TreeSet;
 
 /**
  * 1172. 餐盘栈
@@ -80,24 +79,23 @@ public class DinnerPlates {
     /**
      * 用来存储有哪些可用的Index
      */
-    private IndexTreeNode indexQueue;
+    private final TreeSet<Integer> indexQueue;
 
     /**
      * 存储已用的下标
      */
-    private IndexTreeNode maxIndex = new IndexTreeNode( -1 );
+    private final TreeSet<Integer> usedIndexChain;
 
     public DinnerPlates(int capacity) {
         this.capacity = capacity;
         this.nodes = new TreeNode[200001];
 
-        IndexTreeNode indexQueue = new IndexTreeNode(0);
-        this.indexQueue = indexQueue;
+        this.indexQueue = new TreeSet<>();
         // 初始化所有可用的index
-        for (int i = 1; i < 200001; i++) {
-            indexQueue.next = new IndexTreeNode( i, indexQueue );
-            indexQueue = indexQueue.next;
+        for (int i = 0; i < 200001; i++) {
+            indexQueue.add( i );
         }
+        usedIndexChain = new TreeSet<>();
     }
 
     /**
@@ -106,7 +104,7 @@ public class DinnerPlates {
      */
     public void push(int val) {
         // 获取第一个可用的index
-        int firstIndex = indexQueue.index;
+        int firstIndex = indexQueue.first();
         // 获取对应的node节点
         TreeNode node = nodes[firstIndex];
         if (node == null || node.first == null) {
@@ -121,9 +119,11 @@ public class DinnerPlates {
 
         // 如果当前节点的所在的节点总和已经超过容量，把当前index剔除出去
         if (node.first.size >= capacity) {
-            indexQueue = indexQueue.pop();
+            indexQueue.remove( firstIndex );
         }
-        maxIndex = maxIndex.offer1( firstIndex );
+        if (node.first.size == 1) {
+            usedIndexChain.add( firstIndex );
+        }
     }
 
     /**
@@ -131,7 +131,10 @@ public class DinnerPlates {
      * @return
      */
     public int pop() {
-        return popAtStack(maxIndex.index);
+        if (usedIndexChain.isEmpty()) {
+            return -1;
+        }
+        return popAtStack(usedIndexChain.last());
     }
 
     /**
@@ -153,9 +156,9 @@ public class DinnerPlates {
         if (isLast) {
             nodes[index] = null;
         }
-        indexQueue = indexQueue.offer( index );
+        indexQueue.add( index );
         if (isLast) {
-            maxIndex.offer2( index );
+            usedIndexChain.remove( index );
         }
         return topNum;
     }
@@ -262,98 +265,6 @@ public class DinnerPlates {
             first.last = curr;
             // 计算一整个node的sum
             first.size++;
-        }
-    }
-
-    static class IndexTreeNode {
-        public int index;
-        public IndexTreeNode prev;
-        public IndexTreeNode next;
-
-        public IndexTreeNode(int index) {
-            this.index = index;
-        }
-
-        public IndexTreeNode(int index, IndexTreeNode prev) {
-            this.index = index;
-            this.prev = prev;
-        }
-
-        public IndexTreeNode pop() {
-            if (this.next != null) {
-                this.next.prev = null;
-            }
-            return this.next;
-        }
-
-        public IndexTreeNode offer(int index) {
-            if (index == this.index) {
-                return this;
-            }
-            if (index < this.index) {
-                IndexTreeNode first = new IndexTreeNode(index);
-                this.prev = first;
-                first.next = this;
-                return first;
-            }
-            IndexTreeNode curr = this;
-            while (curr.index != index) {
-                if (curr.next == null || index < curr.next.index) {
-                    IndexTreeNode next = new IndexTreeNode( index, curr );
-                    next.next = curr.next;
-                    curr.next = next;
-                    break;
-                }
-                curr = curr.next;
-            }
-            return this;
-        }
-
-        public IndexTreeNode offer1(int index) {
-            if (index == this.index) {
-                return this;
-            }
-            if (index > this.index) {
-                IndexTreeNode first = new IndexTreeNode(index);
-                this.prev = first;
-                first.next = this;
-                return first;
-            }
-            IndexTreeNode curr = this;
-            while (curr.index != index) {
-                if (curr.next == null || index > curr.next.index) {
-                    curr.next = new IndexTreeNode( index, curr );
-                    break;
-                } else {
-                    curr = curr.next;
-                }
-            }
-            return this;
-        }
-
-        public void offer2(int index) {
-            IndexTreeNode curr = this;
-            while (true) {
-                if (curr == null) {
-                    break;
-                }
-                // 当前就是index。
-                // 要做的事情就是把curr.prev.next 替换成curr.next
-                // curr.next.prev = curr.prev
-                if (index == curr.index) {
-                    if (curr.prev == null) {
-                        curr.index = curr.next.index;
-                        curr.next = curr.next.next;
-                    } else {
-                        curr.prev.next = curr.next;
-                        if (curr.next != null) {
-                            curr.next.prev = curr.prev;
-                        }
-                    }
-                    break;
-                }
-                curr = curr.next;
-            }
         }
     }
 }

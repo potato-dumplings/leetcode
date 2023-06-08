@@ -65,60 +65,60 @@ package may;
 class May1172 {
 
     public static void main(String[] args) {
-//        DinnerPlates dinnerPlates = new DinnerPlates( 2 );
-//        dinnerPlates.push( 1 );
-//        dinnerPlates.push( 2 );
-//        dinnerPlates.push( 3 );
-//        dinnerPlates.push( 4 );
-//        dinnerPlates.push( 5 );
-//
-//        System.out.println( dinnerPlates.popAtStack( 0 ) );
-//
-//        dinnerPlates.push( 20 );
-//        dinnerPlates.push( 21 );
-//
-//        System.out.println( dinnerPlates.popAtStack( 0 ) );
-//        System.out.println( dinnerPlates.popAtStack( 2 ) );
-//
-//        System.out.println(dinnerPlates.pop());
-//        System.out.println(dinnerPlates.pop());
-//        System.out.println(dinnerPlates.pop());
-//        System.out.println(dinnerPlates.pop());
-//        System.out.println(dinnerPlates.pop());
-//        System.out.println();
-//
-//        //["DinnerPlates","push","push","push","popAtStack","pop","pop"]
-//        //[[1],[1],[2],[3],[1],[],[]]
-//        //[null,null,null,null,2,3,1]
-//        DinnerPlates dinnerPlates1 = new DinnerPlates( 1 );
-//        dinnerPlates1.push( 1 );
-//        dinnerPlates1.push( 2 );
-//        dinnerPlates1.push( 3 );
-//        System.out.println(dinnerPlates1.popAtStack( 1 ));
-//        System.out.println(dinnerPlates1.pop());
-//        System.out.println(dinnerPlates1.pop());
-//        System.out.println();
-//
-//        //["DinnerPlates","push","push","push","push","push","popAtStack","push","push","popAtStack","popAtStack","pop","pop","pop","pop","pop"]
-//        //[[2],[1],[2],[3],[4],[5],[0],[20],[21],[1],[1],[],[],[],[],[]]
-//        //[null,null,null,null,null,null,2,null,null,4,3,21,5,20,1,-1]
-//        DinnerPlates dinnerPlates2 = new DinnerPlates( 2 );
-//        dinnerPlates2.push( 1 );
-//        dinnerPlates2.push( 2 );
-//        dinnerPlates2.push( 3 );
-//        dinnerPlates2.push( 4 );
-//        dinnerPlates2.push( 5 );
-//        System.out.println(dinnerPlates2.popAtStack( 0 ));
-//        dinnerPlates2.push( 20 );
-//        dinnerPlates2.push( 21 );
-//        System.out.println(dinnerPlates2.popAtStack( 1 ));
-//        System.out.println(dinnerPlates2.popAtStack( 1 ));
-//        System.out.println(dinnerPlates2.pop());
-//        System.out.println(dinnerPlates2.pop());
-//        System.out.println(dinnerPlates2.pop());
-//        System.out.println(dinnerPlates2.pop());
-//        System.out.println(dinnerPlates2.pop());
-//        System.out.println();
+        DinnerPlates dinnerPlates = new DinnerPlates( 2 );
+        dinnerPlates.push( 1 );
+        dinnerPlates.push( 2 );
+        dinnerPlates.push( 3 );
+        dinnerPlates.push( 4 );
+        dinnerPlates.push( 5 );
+
+        System.out.println( dinnerPlates.popAtStack( 0 ) );
+
+        dinnerPlates.push( 20 );
+        dinnerPlates.push( 21 );
+
+        System.out.println( dinnerPlates.popAtStack( 0 ) );
+        System.out.println( dinnerPlates.popAtStack( 2 ) );
+
+        System.out.println(dinnerPlates.pop());
+        System.out.println(dinnerPlates.pop());
+        System.out.println(dinnerPlates.pop());
+        System.out.println(dinnerPlates.pop());
+        System.out.println(dinnerPlates.pop());
+        System.out.println();
+
+        //["DinnerPlates","push","push","push","popAtStack","pop","pop"]
+        //[[1],[1],[2],[3],[1],[],[]]
+        //[null,null,null,null,2,3,1]
+        DinnerPlates dinnerPlates1 = new DinnerPlates( 1 );
+        dinnerPlates1.push( 1 );
+        dinnerPlates1.push( 2 );
+        dinnerPlates1.push( 3 );
+        System.out.println(dinnerPlates1.popAtStack( 1 ));
+        System.out.println(dinnerPlates1.pop());
+        System.out.println(dinnerPlates1.pop());
+        System.out.println();
+
+        //["DinnerPlates","push","push","push","push","push","popAtStack","push","push","popAtStack","popAtStack","pop","pop","pop","pop","pop"]
+        //[[2],[1],[2],[3],[4],[5],[0],[20],[21],[1],[1],[],[],[],[],[]]
+        //[null,null,null,null,null,null,2,null,null,4,3,21,5,20,1,-1]
+        DinnerPlates dinnerPlates2 = new DinnerPlates( 2 );
+        dinnerPlates2.push( 1 );
+        dinnerPlates2.push( 2 );
+        dinnerPlates2.push( 3 );
+        dinnerPlates2.push( 4 );
+        dinnerPlates2.push( 5 );
+        System.out.println(dinnerPlates2.popAtStack( 0 ));
+        dinnerPlates2.push( 20 );
+        dinnerPlates2.push( 21 );
+        System.out.println(dinnerPlates2.popAtStack( 1 ));
+        System.out.println(dinnerPlates2.popAtStack( 1 ));
+        System.out.println(dinnerPlates2.pop());
+        System.out.println(dinnerPlates2.pop());
+        System.out.println(dinnerPlates2.pop());
+        System.out.println(dinnerPlates2.pop());
+        System.out.println(dinnerPlates2.pop());
+        System.out.println();
 
         // ["DinnerPlates","push","push","push","push","push","push","push","push","popAtStack","popAtStack","popAtStack","popAtStack","push","push","push","push","push","push","push","push","pop","pop","pop","pop"]
         //[[2],[471],[177],[1],[29],[333],[154],[130],[333],[1],[0],[2],[0],[165],[383],[267],[367],[53],[373],[388],[249],[],[],[],[]]
