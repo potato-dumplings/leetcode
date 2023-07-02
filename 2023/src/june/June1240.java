@@ -1,4 +1,4 @@
-package jun;
+package june;
 
 /**
  * 1240. 铺瓷砖

@@ -1,4 +1,4 @@
-package jun;
+package june;
 
 /**
  * 2611. 老鼠和奶酪
@@ -40,10 +40,6 @@ public class June2661 {
 
     public static int miceAndCheese(int[] reward1, int[] reward2, int k) {
         return 1;
-    }
-
-    public static void main(String[] args) {
-
     }
 
 }

@@ -1,4 +1,4 @@
-package jun;
+package june;
 
 /**
  * 2699. 修改图中的边权

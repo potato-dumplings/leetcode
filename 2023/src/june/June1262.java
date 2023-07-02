@@ -1,4 +1,4 @@
-package jun;
+package june;
 
 /**
  * 1262. 可被三整除的最大和
@@ -51,22 +51,20 @@ public class June1262 {
         // one代表需要的diffAnswer（需要1或者2的最小单个值）
         // two 同理
         int minOne = Integer.MAX_VALUE, minTwo = 0;
-        boolean towCompleted = false;
 
         for (int num : nums) {
-            int curr = num % 3;
-            if (curr == 0) {
-                continue;
-            }
-            if (curr == diffAnswer) {
-                minOne = Math.min( num, minOne);
-            } else if (minTwo % 3 != diffAnswer) {
-                if (minTwo != 0) {
-                    towCompleted = true;
-                }
-                minTwo += num;
-            } else if (num > minOne || (towCompleted && num >= minTwo)) {
+            if (num >= minOne) {
                 break;
+            }
+            if (minTwo % 3 == diffAnswer && num >= minTwo) {
+                break;
+            }
+            int curr = num % 3;
+            if (curr == 0) { continue; }
+            if (curr == diffAnswer) {
+                minOne = num;
+            } else if (minTwo % 3 != diffAnswer) {
+                minTwo += num;
             }
         }
         if (minTwo % 3 != diffAnswer) {

@@ -1,4 +1,4 @@
-package jun;
+package june;
 
 /**
  * 1494. 并行课程 II

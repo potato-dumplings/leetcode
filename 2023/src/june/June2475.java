@@ -1,4 +1,4 @@
-package jun;
+package june;
 
 /**
  * 2475. 数组中不等三元组的数目
