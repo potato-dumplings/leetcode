@@ -85,8 +85,11 @@ public class Jul445 {
      * 节点反转
      * @return 反转后的节点
      */
-    private ListNode reverseNode(ListNode oldNode) {
-        ListNode newNode = new ListNode(0, oldNode), currNode = oldNode.next;
+    private ListNode reverseNode(ListNode head) {
+        if (head == null) {
+            return null;
+        }
+        ListNode newNode = new ListNode(0, head), currNode = head.next;
         newNode.next.next = null;
         while (currNode != null) {
             ListNode oldNextNode = newNode.next;
