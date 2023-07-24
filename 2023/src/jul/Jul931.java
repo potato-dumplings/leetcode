@@ -14,7 +14,7 @@ public class Jul931 {
      * @param matrix
      * @return
      */
-    public int minFallingPathSum(int[][] matrix) {
+    public static int minFallingPathSum(int[][] matrix) {
         int in = matrix.length, jn = matrix[0].length;
 
         int[] dp = new int[jn + 2];
